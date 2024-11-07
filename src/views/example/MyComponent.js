@@ -1,4 +1,5 @@
 import React from "react";
+import ChildComponent from "./ChildComponent";
 
 class MyComponent extends React.Component {
   /*
@@ -19,6 +20,11 @@ class MyComponent extends React.Component {
     alert("Hello, " + this.state.name);
   };
 
+  handleOnClick1 = () => {
+    const x = document.getElementById("tk").value;
+    alert("tai khoan " + x);
+  };
+
   render() {
     return (
       <div>
@@ -37,6 +43,7 @@ class MyComponent extends React.Component {
         <div className="third">
           <button onClick={() => this.handleOnClick()}>Click me</button>
         </div>
+        <ChildComponent name={"child one"} age={"10"} />
       </div>
     );
   }

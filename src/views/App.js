@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import MyComponent from "./example/MyComponent";
+import Buoi2 from "./example/Buoi2";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           Learn React
         </a>
         <MyComponent />
+        <Buoi2 />
       </header>
     </div>
   );
