@@ -1,6 +1,16 @@
 import React from "react";
 
 class ChildComponent extends React.Component {
+  state = {
+    check_show: false,
+  };
+
+  handelOnClick = () => {
+    this.setState({
+      check_show: !this.state.check_show,
+    });
+  };
+
   render() {
     // Cách 1: dùng trực tiếp this.props. tên props
     // vd: this.props.name
@@ -17,21 +27,38 @@ class ChildComponent extends React.Component {
 
     // let { name, age } = this.props; // lưu ý phải dùng đúng key của props
 
-    let array_info = this.props.array_info;
+    let { array_info } = this.props;
+    let { check_show } = this.state;
 
     return (
-      <div className="list_info">
-        {array_info.map((item, index) => {
-          return (
-            <div key={index}>
-              <p>Index: {index}</p>
-              <p>Id: {item.id}</p>
-              <p>Name: {item.name}</p>
-              <p>Age: {item.age}</p>
+      <>
+        {check_show === false ? (
+          <div>
+            <button type="button" onClick={() => this.handelOnClick()}>
+              Show
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="list_info">
+              {array_info.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <p>Id: {item.id}</p>
+                    <p>Name: {item.name}</p>
+                    <p>Age: {item.age}</p>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+            <div>
+              <button type="button" onClick={() => this.handelOnClick()}>
+                Hide
+              </button>
+            </div>
+          </>
+        )}
+      </>
     );
   }
 }
