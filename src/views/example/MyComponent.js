@@ -8,6 +8,11 @@ class MyComponent extends React.Component {
   state = {
     name: "David",
     age: 30,
+    array: [
+      { id: 1, name: "David", age: 30 },
+      { id: 2, name: "John", age: 25 },
+      { id: 3, name: "Peter", age: 35 },
+    ],
   };
 
   handleOnChangName = (event) => {
@@ -43,7 +48,7 @@ class MyComponent extends React.Component {
         <div className="third">
           <button onClick={() => this.handleOnClick()}>Click me</button>
         </div>
-        <ChildComponent name={"child one"} age={"10"} />
+        <ChildComponent array_info={this.state.array} />
       </div>
     );
   }

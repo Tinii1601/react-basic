@@ -15,13 +15,22 @@ class ChildComponent extends React.Component {
 
     // sau đó dùng name, age thay vì this.props.name, this.props.age
 
-    let { name, age } = this.props; // lưu ý phải dùng đúng key của props
+    // let { name, age } = this.props; // lưu ý phải dùng đúng key của props
+
+    let array_info = this.props.array_info;
 
     return (
-      <div>
-        <p>Child Component</p>
-        <p>Name: {name}</p>
-        <p>Age: {age}</p>
+      <div className="list_info">
+        {array_info.map((item, index) => {
+          return (
+            <div key={index}>
+              <p>Index: {index}</p>
+              <p>Id: {item.id}</p>
+              <p>Name: {item.name}</p>
+              <p>Age: {item.age}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
